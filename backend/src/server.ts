@@ -23,7 +23,9 @@ app.use(cors({
     'http://localhost:5174',  // Panel de administración
     'http://localhost:3000',  // Fallback
     'http://10.255.255.254:5173',  // Red WSL
-    'http://172.23.251.63:5173'    // Red WSL
+    'http://172.23.251.63:5173',    // Red WSL
+    'https://solar-calculator-mjbw1836c-ericks-projects-7013dd5d.vercel.app',
+    'https://solar-calculator-navy.vercel.app/', // Tu dominio final de Vercel
   ],
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],

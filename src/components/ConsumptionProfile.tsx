@@ -31,7 +31,7 @@ export function ConsumptionProfile({ onProfileChange, dailyConsumption }: Props)
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/analysis/consumption-patterns');
+      const response = await fetch('https://solar-calculator-jw35.onrender.com/api/analysis/consumption-patterns');
       const result = await response.json();
       
       const patternData = result.data[selectedPattern];
