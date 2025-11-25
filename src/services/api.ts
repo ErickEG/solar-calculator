@@ -21,27 +21,27 @@ export async function getPanels(filters?: {
     });
   }
   
-  const response = await axios.get(`${API_URL}/panels?${params}`);
+  const response = await axios.get(`${API_URL}/api/panels?${params}`);
   return response.data.data as SolarPanel[];  // Cambiar esta línea
 }
 
 export async function getPanelById(id: string) {
-  const response = await axios.get(`${API_URL}/panels/${id}`);
+  const response = await axios.get(`${API_URL}/api/panels/${id}`);
   return response.data as SolarPanel;
 }
 
 export async function createPanel(panel: Omit<SolarPanel, 'id' | 'created_at' | 'updated_at'>) {
-  const response = await axios.post(`${API_URL}/panels`, panel);
+  const response = await axios.post(`${API_URL}/api/panels`, panel);
   return response.data as SolarPanel;
 }
 
 export async function updatePanel(id: string, panel: Partial<SolarPanel>) {
-  const response = await axios.put(`${API_URL}/panels/${id}`, panel);
+  const response = await axios.put(`${API_URL}/api/panels/${id}`, panel);
   return response.data as SolarPanel;
 }
 
 export async function deletePanel(id: string) {
-  await axios.delete(`${API_URL}/panels/${id}`);
+  await axios.delete(`${API_URL}/api/panels/${id}`);
 }
 
 // Inversores
@@ -62,32 +62,32 @@ export async function getInverters(filters?: {
     });
   }
   
-  const response = await axios.get(`${API_URL}/inverters?${params}`);
+  const response = await axios.get(`${API_URL}/api/inverters?${params}`);
   return response.data.data as Inverter[];  // Cambiar esta línea
 }
 
 export async function getInverterById(id: string) {
-  const response = await axios.get(`${API_URL}/inverters/${id}`);
+  const response = await axios.get(`${API_URL}/api/inverters/${id}`);
   return response.data as Inverter;
 }
 
 export async function createInverter(inverter: Omit<Inverter, 'id' | 'created_at' | 'updated_at'>) {
-  const response = await axios.post(`${API_URL}/inverters`, inverter);
+  const response = await axios.post(`${API_URL}/api/inverters`, inverter);
   return response.data as Inverter;
 }
 
 export async function updateInverter(id: string, inverter: Partial<Inverter>) {
-  const response = await axios.put(`${API_URL}/inverters/${id}`, inverter);
+  const response = await axios.put(`${API_URL}/api/inverters/${id}`, inverter);
   return response.data as Inverter;
 }
 
 export async function deleteInverter(id: string) {
-  await axios.delete(`${API_URL}/inverters/${id}`);
+  await axios.delete(`${API_URL}/api/inverters/${id}`);
 }
 
 // NUEVAS FUNCIONES para análisis de sistemas
 export async function getConsumptionPatterns() {
-  const response = await axios.get(`${API_URL}/analysis/consumption-patterns`);
+  const response = await axios.get(`${API_URL}/api/analysis/consumption-patterns`);
   return response.data.data;
 }
 
@@ -102,6 +102,6 @@ export async function recommendSystem(data: {
   feedInTariff?: number;
   batteryBudget?: number;
 }) {
-  const response = await axios.post(`${API_URL}/analysis/recommend-system`, data);
+  const response = await axios.post(`${API_URL}/api/analysis/recommend-system`, data);
   return response.data;
 }
