@@ -18,18 +18,7 @@ const PORT = Number(process.env.PORT) || 3001
 // Middlewares
 app.use(helmet())
 app.use(cors({
-  origin: [
-    'http://localhost:5173',  // Calculadora principal
-    'http://localhost:5174',  // Panel de administración
-    'http://localhost:3000',  // Fallback
-    'http://10.255.255.254:5173',  // Red WSL
-    'http://172.23.251.63:5173',    // Red WSL
-    'https://solar-calculator-mjbw1836c-ericks-projects-7013dd5d.vercel.app',
-    'https://solar-calculator-navy.vercel.app/', // Tu dominio final de Vercel
-  ],
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: '*' // Permite TODO
 }))
 app.use(compression())
 app.use(morgan('combined'))
